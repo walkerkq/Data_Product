@@ -1,0 +1,20 @@
+# Admission Decision Predictor   
+## Documentation    
+
+This application is based on engineered enrollment data from a fictional college. The application predicts the likelihood of an applicant being accepted to Faber College given three academic variables: ACT, GPA and class rank. 
+
+## Prediction Model  
+The prediction is based on a linear model fit to the sample data using ACT, GPA and class rank as predictors. The sample data includes 50 observations.    
+
+The data set contains the following variables:  
+- ACT: ACT Score, int, range 15-36  
+- GPA: grade point average, num, range 0-4.0  
+- Class.Rank: student's academic rank, num, 0-1  
+- Admission.Decision: where 1 represents admission granted and 0 represents denial of admission  
+
+```{r showFit}
+admission <- read.csv("data/sample_admission_data.csv", stringsAsFactors=FALSE)
+head(admission)
+fit <- lm(Admission.Decision ~ . -1, admission)
+summary(fit)
+```

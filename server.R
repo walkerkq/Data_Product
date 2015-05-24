@@ -4,7 +4,7 @@ predict.decision <- function(act, gpa, rank) {
      fit <- lm(Admission.Decision ~ . -1, admission)
      sample <- data.frame(ACT=c(act), GPA=c(gpa), Class.Rank=c(rank))
      prediction <- predict(fit, sample)
-     print(paste("Based on your academic accomplishments, you have a ", round(prediction[[1]], 2), "% chance of being accepted.", sep=""))
+     print(paste("Based on your academic accomplishments, you have a ", round(prediction[[1]], 2)*100, "% chance of being accepted.", sep=""))
 }
 
 
